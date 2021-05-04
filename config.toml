@@ -1,0 +1,2 @@
+server="mongodb://admin:myadminpassword@ec2-3-19-12-174.us-east-2.compute.amazonaws.com/admin"
+database="unity_chain"

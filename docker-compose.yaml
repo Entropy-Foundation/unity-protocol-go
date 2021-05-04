@@ -1,0 +1,812 @@
+version: '3.7'
+services:
+    boot.node:
+      build:
+        context: .
+        dockerfile: ./Dockerfile
+      # mem_limit: 300m 
+      ports:
+        - "6101:6101"
+    1.node:
+      build: 
+        context: . 
+        dockerfile: ./Dockerfile 
+      environment: 
+        port: 6001 
+        first-ip: 127.0.1.1:6000 
+        IS_COMPOSE: "true" 
+      # mem_limit: 300m 
+      ports: 
+        - "6001:6001" 
+    2.node:
+      build: 
+        context: . 
+        dockerfile: ./Dockerfile 
+      depends_on: 
+      - "1.node" 
+      environment: 
+        port: 6002 
+        first-ip: 127.0.1.1:6000 
+        IS_COMPOSE: "true" 
+      # mem_limit: 300m 
+      ports: 
+        - "6002:6002" 
+    3.node:
+      build: 
+        context: . 
+        dockerfile: ./Dockerfile 
+      depends_on: 
+      - "1.node" 
+      - "2.node" 
+      environment: 
+        port: 6003 
+        first-ip: 127.0.1.1:6000 
+        IS_COMPOSE: "true" 
+      # mem_limit: 300m 
+      ports: 
+        - "6003:6003" 
+    4.node:
+      build: 
+        context: . 
+        dockerfile: ./Dockerfile 
+      depends_on:
+      - "1.node" 
+      - "2.node" 
+      - "3.node" 
+      environment: 
+        port: 6004 
+        first-ip: 127.0.1.1:6000 
+        IS_COMPOSE: "true" 
+      # mem_limit: 300m 
+      ports: 
+        - "6004:6004" 
+    5.node:
+      build: 
+        context: . 
+        dockerfile: ./Dockerfile 
+      depends_on:
+      - "1.node" 
+      - "2.node" 
+      - "3.node" 
+      - "4.node" 
+      environment: 
+        port: 6005 
+        first-ip: 127.0.1.1:6000 
+        IS_COMPOSE: "true" 
+      # mem_limit: 300m 
+      ports: 
+        - "6005:6005" 
+    6.node:
+      build: 
+        context: . 
+        dockerfile: ./Dockerfile 
+      depends_on:
+      - "1.node" 
+      - "2.node" 
+      - "3.node" 
+      - "4.node" 
+      - "5.node" 
+      environment: 
+        port: 6006 
+        first-ip: 127.0.1.1:6000 
+        IS_COMPOSE: "true" 
+      # mem_limit: 300m 
+      ports: 
+        - "6006:6006" 
+    7.node:
+      build: 
+        context: . 
+        dockerfile: ./Dockerfile 
+      depends_on:
+      - "1.node" 
+      - "2.node" 
+      - "3.node" 
+      - "4.node" 
+      - "5.node" 
+      - "6.node" 
+      environment: 
+        port: 6007 
+        first-ip: 127.0.1.1:6000 
+        IS_COMPOSE: "true" 
+      # mem_limit: 300m 
+      ports: 
+        - "6007:6007" 
+    8.node:
+      build: 
+        context: . 
+        dockerfile: ./Dockerfile 
+      depends_on:
+      - "1.node" 
+      - "2.node" 
+      - "3.node" 
+      - "4.node" 
+      - "5.node" 
+      - "6.node" 
+      - "7.node" 
+      environment: 
+        port: 6008 
+        first-ip: 127.0.1.1:6000 
+        IS_COMPOSE: "true" 
+      # mem_limit: 300m 
+      ports: 
+        - "6008:6008" 
+    9.node:
+      build: 
+        context: . 
+        dockerfile: ./Dockerfile 
+      depends_on:
+      - "1.node" 
+      - "2.node" 
+      - "3.node" 
+      - "4.node" 
+      - "5.node" 
+      - "6.node" 
+      - "7.node" 
+      - "8.node" 
+      environment: 
+        port: 6009 
+        first-ip: 127.0.1.1:6000 
+        IS_COMPOSE: "true" 
+      # mem_limit: 300m 
+      ports: 
+        - "6009:6009" 
+    10.node:
+      build: 
+        context: . 
+        dockerfile: ./Dockerfile 
+      depends_on:
+      - "1.node" 
+      - "2.node" 
+      - "3.node" 
+      - "4.node" 
+      - "5.node" 
+      - "6.node" 
+      - "7.node" 
+      - "8.node" 
+      - "9.node" 
+      environment: 
+        port: 6010 
+        first-ip: 127.0.1.1:6000 
+        IS_COMPOSE: "true" 
+      # mem_limit: 300m 
+      ports: 
+        - "6010:6010" 
+    11.node:
+      build: 
+        context: . 
+        dockerfile: ./Dockerfile 
+      depends_on:
+      - "1.node" 
+      - "2.node" 
+      - "3.node" 
+      - "4.node" 
+      - "5.node" 
+      - "6.node" 
+      - "7.node" 
+      - "8.node" 
+      - "9.node" 
+      - "10.node" 
+      environment: 
+        port: 6011 
+        first-ip: 127.0.1.1:6000 
+        IS_COMPOSE: "true" 
+      # mem_limit: 300m 
+      ports: 
+        - "6011:6011" 
+    12.node:
+      build: 
+        context: . 
+        dockerfile: ./Dockerfile 
+      depends_on:
+      - "1.node" 
+      - "2.node" 
+      - "3.node" 
+      - "4.node" 
+      - "5.node" 
+      - "6.node" 
+      - "7.node" 
+      - "8.node" 
+      - "9.node" 
+      - "10.node" 
+      - "11.node" 
+      environment: 
+        port: 6012 
+        first-ip: 127.0.1.1:6000 
+        IS_COMPOSE: "true" 
+      # mem_limit: 300m 
+      ports: 
+        - "6012:6012" 
+    13.node:
+      build: 
+        context: . 
+        dockerfile: ./Dockerfile 
+      depends_on:
+      - "1.node" 
+      - "2.node" 
+      - "3.node" 
+      - "4.node" 
+      - "5.node" 
+      - "6.node" 
+      - "7.node" 
+      - "8.node" 
+      - "9.node" 
+      - "10.node" 
+      - "11.node" 
+      - "12.node" 
+      environment: 
+        port: 6013 
+        first-ip: 127.0.1.1:6000 
+        IS_COMPOSE: "true" 
+      # mem_limit: 300m 
+      ports: 
+        - "6013:6013" 
+    14.node:
+      build: 
+        context: . 
+        dockerfile: ./Dockerfile 
+      depends_on:
+      - "1.node" 
+      - "2.node" 
+      - "3.node" 
+      - "4.node" 
+      - "5.node" 
+      - "6.node" 
+      - "7.node" 
+      - "8.node" 
+      - "9.node" 
+      - "10.node" 
+      - "11.node" 
+      - "12.node" 
+      - "13.node" 
+      environment: 
+        port: 6014 
+        first-ip: 127.0.1.1:6000 
+        IS_COMPOSE: "true" 
+      # mem_limit: 300m 
+      ports: 
+        - "6014:6014" 
+    15.node:
+      build: 
+        context: . 
+        dockerfile: ./Dockerfile 
+      depends_on:
+      - "1.node" 
+      - "2.node" 
+      - "3.node" 
+      - "4.node" 
+      - "5.node" 
+      - "6.node" 
+      - "7.node" 
+      - "8.node" 
+      - "9.node" 
+      - "10.node" 
+      - "11.node" 
+      - "12.node" 
+      - "13.node" 
+      - "14.node" 
+      environment: 
+        port: 6015 
+        first-ip: 127.0.1.1:6000 
+        IS_COMPOSE: "true" 
+      # mem_limit: 300m 
+      ports: 
+        - "6015:6015" 
+    16.node:
+      build: 
+        context: . 
+        dockerfile: ./Dockerfile 
+      depends_on:
+      - "1.node" 
+      - "2.node" 
+      - "3.node" 
+      - "4.node" 
+      - "5.node" 
+      - "6.node" 
+      - "7.node" 
+      - "8.node" 
+      - "9.node" 
+      - "10.node" 
+      - "11.node" 
+      - "12.node" 
+      - "13.node" 
+      - "14.node" 
+      - "15.node" 
+      environment: 
+        port: 6016 
+        first-ip: 127.0.1.1:6000 
+        IS_COMPOSE: "true" 
+      # mem_limit: 300m 
+      ports: 
+        - "6016:6016" 
+    17.node:
+      build: 
+        context: . 
+        dockerfile: ./Dockerfile 
+      depends_on:
+      - "1.node" 
+      - "2.node" 
+      - "3.node" 
+      - "4.node" 
+      - "5.node" 
+      - "6.node" 
+      - "7.node" 
+      - "8.node" 
+      - "9.node" 
+      - "10.node" 
+      - "11.node" 
+      - "12.node" 
+      - "13.node" 
+      - "14.node" 
+      - "15.node" 
+      - "16.node" 
+      environment: 
+        port: 6017 
+        first-ip: 127.0.1.1:6000 
+        IS_COMPOSE: "true" 
+      # mem_limit: 300m 
+      ports: 
+        - "6017:6017" 
+    18.node:
+      build: 
+        context: . 
+        dockerfile: ./Dockerfile 
+      depends_on:
+      - "1.node" 
+      - "2.node" 
+      - "3.node" 
+      - "4.node" 
+      - "5.node" 
+      - "6.node" 
+      - "7.node" 
+      - "8.node" 
+      - "9.node" 
+      - "10.node" 
+      - "11.node" 
+      - "12.node" 
+      - "13.node" 
+      - "14.node" 
+      - "15.node" 
+      - "16.node" 
+      - "17.node" 
+      environment: 
+        port: 6018 
+        first-ip: 127.0.1.1:6000 
+        IS_COMPOSE: "true" 
+      # mem_limit: 300m 
+      ports: 
+        - "6018:6018" 
+    19.node:
+      build: 
+        context: . 
+        dockerfile: ./Dockerfile 
+      depends_on:
+      - "1.node" 
+      - "2.node" 
+      - "3.node" 
+      - "4.node" 
+      - "5.node" 
+      - "6.node" 
+      - "7.node" 
+      - "8.node" 
+      - "9.node" 
+      - "10.node" 
+      - "11.node" 
+      - "12.node" 
+      - "13.node" 
+      - "14.node" 
+      - "15.node" 
+      - "16.node" 
+      - "17.node" 
+      - "18.node" 
+      environment: 
+        port: 6019 
+        first-ip: 127.0.1.1:6000 
+        IS_COMPOSE: "true" 
+      # mem_limit: 300m 
+      ports: 
+        - "6019:6019" 
+    20.node:
+      build: 
+        context: . 
+        dockerfile: ./Dockerfile 
+      depends_on:
+      - "1.node" 
+      - "2.node" 
+      - "3.node" 
+      - "4.node" 
+      - "5.node" 
+      - "6.node" 
+      - "7.node" 
+      - "8.node" 
+      - "9.node" 
+      - "10.node" 
+      - "11.node" 
+      - "12.node" 
+      - "13.node" 
+      - "14.node" 
+      - "15.node" 
+      - "16.node" 
+      - "17.node" 
+      - "18.node" 
+      - "19.node" 
+      environment: 
+        port: 6020 
+        first-ip: 127.0.1.1:6000 
+        IS_COMPOSE: "true" 
+      # mem_limit: 300m 
+      ports: 
+        - "6020:6020"
+    21.node:
+      build: 
+        context: . 
+        dockerfile: ./Dockerfile 
+      depends_on:
+      - "1.node" 
+      - "2.node" 
+      - "3.node" 
+      - "4.node" 
+      - "5.node" 
+      - "6.node" 
+      - "7.node" 
+      - "8.node" 
+      - "9.node" 
+      - "10.node" 
+      - "11.node" 
+      - "12.node" 
+      - "13.node" 
+      - "14.node" 
+      - "15.node" 
+      - "16.node" 
+      - "17.node" 
+      - "18.node" 
+      - "19.node" 
+      - "20.node" 
+      environment: 
+        port: 6021 
+        first-ip: 127.0.1.1:6000 
+        IS_COMPOSE: "true" 
+      # mem_limit: 300m 
+      ports: 
+        - "6021:6021" 
+    22.node:
+      build: 
+        context: . 
+        dockerfile: ./Dockerfile 
+      depends_on: 
+  
+      - "1.node" 
+      - "2.node" 
+      - "3.node" 
+      - "4.node" 
+      - "5.node" 
+      - "6.node" 
+      - "7.node" 
+      - "8.node" 
+      - "9.node" 
+      - "10.node" 
+      - "11.node" 
+      - "12.node" 
+      - "13.node" 
+      - "14.node" 
+      - "15.node" 
+      - "16.node" 
+      - "17.node" 
+      - "18.node" 
+      - "19.node" 
+      - "20.node" 
+      - "21.node" 
+      environment: 
+        port: 6022 
+        first-ip: 127.0.1.1:6000 
+        IS_COMPOSE: "true" 
+      # mem_limit: 300m 
+      ports: 
+        - "6022:6022" 
+    23.node:
+      build: 
+        context: . 
+        dockerfile: ./Dockerfile 
+      depends_on: 
+      - "boot.node" 
+      - "1.node" 
+      - "2.node" 
+      - "3.node" 
+      - "4.node" 
+      - "5.node" 
+      - "6.node" 
+      - "7.node" 
+      - "8.node" 
+      - "9.node" 
+      - "10.node" 
+      - "11.node" 
+      - "12.node" 
+      - "13.node" 
+      - "14.node" 
+      - "15.node" 
+      - "16.node" 
+      - "17.node" 
+      - "18.node" 
+      - "19.node" 
+      - "20.node" 
+      - "21.node" 
+      - "22.node" 
+      environment: 
+        port: 6023 
+        first-ip: 127.0.1.1:6000 
+        IS_COMPOSE: "true" 
+      # mem_limit: 300m 
+      ports: 
+        - "6023:6023" 
+    24.node:
+      build: 
+        context: . 
+        dockerfile: ./Dockerfile 
+      depends_on: 
+      - "boot.node" 
+      - "1.node" 
+      - "2.node" 
+      - "3.node" 
+      - "4.node" 
+      - "5.node" 
+      - "6.node" 
+      - "7.node" 
+      - "8.node" 
+      - "9.node" 
+      - "10.node" 
+      - "11.node" 
+      - "12.node" 
+      - "13.node" 
+      - "14.node" 
+      - "15.node" 
+      - "16.node" 
+      - "17.node" 
+      - "18.node" 
+      - "19.node" 
+      - "20.node" 
+      - "21.node" 
+      - "22.node" 
+      - "23.node" 
+      environment: 
+        port: 6024 
+        first-ip: 127.0.1.1:6000 
+        IS_COMPOSE: "true" 
+      # mem_limit: 300m 
+      ports: 
+        - "6024:6024" 
+    25.node:
+      build: 
+        context: . 
+        dockerfile: ./Dockerfile 
+      depends_on: 
+      - "boot.node" 
+      - "1.node" 
+      - "2.node" 
+      - "3.node" 
+      - "4.node" 
+      - "5.node" 
+      - "6.node" 
+      - "7.node" 
+      - "8.node" 
+      - "9.node" 
+      - "10.node" 
+      - "11.node" 
+      - "12.node" 
+      - "13.node" 
+      - "14.node" 
+      - "15.node" 
+      - "16.node" 
+      - "17.node" 
+      - "18.node" 
+      - "19.node" 
+      - "20.node" 
+      - "21.node" 
+      - "22.node" 
+      - "23.node" 
+      - "24.node" 
+      environment: 
+        port: 6025 
+        first-ip: 127.0.1.1:6000 
+        IS_COMPOSE: "true" 
+      # mem_limit: 300m 
+      ports: 
+        - "6025:6025" 
+    26.node:
+      build: 
+        context: . 
+        dockerfile: ./Dockerfile 
+      depends_on: 
+      - "boot.node" 
+      - "1.node" 
+      - "2.node" 
+      - "3.node" 
+      - "4.node" 
+      - "5.node" 
+      - "6.node" 
+      - "7.node" 
+      - "8.node" 
+      - "9.node" 
+      - "10.node" 
+      - "11.node" 
+      - "12.node" 
+      - "13.node" 
+      - "14.node" 
+      - "15.node" 
+      - "16.node" 
+      - "17.node" 
+      - "18.node" 
+      - "19.node" 
+      - "20.node" 
+      - "21.node" 
+      - "22.node" 
+      - "23.node" 
+      - "24.node" 
+      - "25.node" 
+      environment: 
+        port: 6026 
+        first-ip: 127.0.1.1:6000 
+        IS_COMPOSE: "true" 
+      # mem_limit: 300m 
+      ports: 
+        - "6026:6026" 
+    27.node:
+      build: 
+        context: . 
+        dockerfile: ./Dockerfile 
+      depends_on: 
+      - "boot.node" 
+      - "1.node" 
+      - "2.node" 
+      - "3.node" 
+      - "4.node" 
+      - "5.node" 
+      - "6.node" 
+      - "7.node" 
+      - "8.node" 
+      - "9.node" 
+      - "10.node" 
+      - "11.node" 
+      - "12.node" 
+      - "13.node" 
+      - "14.node" 
+      - "15.node" 
+      - "16.node" 
+      - "17.node" 
+      - "18.node" 
+      - "19.node" 
+      - "20.node" 
+      - "21.node" 
+      - "22.node" 
+      - "23.node" 
+      - "24.node" 
+      - "25.node" 
+      - "26.node" 
+      environment: 
+        port: 6027 
+        first-ip: 127.0.1.1:6000 
+        IS_COMPOSE: "true" 
+      # mem_limit: 300m 
+      ports: 
+        - "6027:6027" 
+    28.node:
+      build: 
+        context: . 
+        dockerfile: ./Dockerfile 
+      depends_on: 
+      - "boot.node" 
+      - "1.node" 
+      - "2.node" 
+      - "3.node" 
+      - "4.node" 
+      - "5.node" 
+      - "6.node" 
+      - "7.node" 
+      - "8.node" 
+      - "9.node" 
+      - "10.node" 
+      - "11.node" 
+      - "12.node" 
+      - "13.node" 
+      - "14.node" 
+      - "15.node" 
+      - "16.node" 
+      - "17.node" 
+      - "18.node" 
+      - "19.node" 
+      - "20.node" 
+      - "21.node" 
+      - "22.node" 
+      - "23.node" 
+      - "24.node" 
+      - "25.node" 
+      - "26.node" 
+      - "27.node" 
+      environment: 
+        port: 6028 
+        first-ip: 127.0.1.1:6000 
+        IS_COMPOSE: "true" 
+      # mem_limit: 300m 
+      ports: 
+        - "6028:6028" 
+    29.node:
+      build: 
+        context: . 
+        dockerfile: ./Dockerfile 
+      depends_on: 
+      - "boot.node" 
+      - "1.node" 
+      - "2.node" 
+      - "3.node" 
+      - "4.node" 
+      - "5.node" 
+      - "6.node" 
+      - "7.node" 
+      - "8.node" 
+      - "9.node" 
+      - "10.node" 
+      - "11.node" 
+      - "12.node" 
+      - "13.node" 
+      - "14.node" 
+      - "15.node" 
+      - "16.node" 
+      - "17.node" 
+      - "18.node" 
+      - "19.node" 
+      - "20.node" 
+      - "21.node" 
+      - "22.node" 
+      - "23.node" 
+      - "24.node" 
+      - "25.node" 
+      - "26.node" 
+      - "27.node" 
+      - "28.node" 
+      environment: 
+        port: 6029 
+        first-ip: 127.0.1.1:6000 
+        IS_COMPOSE: "true" 
+      # mem_limit: 300m 
+      ports: 
+        - "6029:6029" 
+    30.node:
+      build: 
+        context: . 
+        dockerfile: ./Dockerfile 
+      depends_on: 
+      - "boot.node" 
+      - "1.node" 
+      - "2.node" 
+      - "3.node" 
+      - "4.node" 
+      - "5.node" 
+      - "6.node" 
+      - "7.node" 
+      - "8.node" 
+      - "9.node" 
+      - "10.node" 
+      - "11.node" 
+      - "12.node" 
+      - "13.node" 
+      - "14.node" 
+      - "15.node" 
+      - "16.node" 
+      - "17.node" 
+      - "18.node" 
+      - "19.node" 
+      - "20.node" 
+      - "21.node" 
+      - "22.node" 
+      - "23.node" 
+      - "24.node" 
+      - "25.node" 
+      - "26.node" 
+      - "27.node" 
+      - "28.node" 
+      - "29.node" 
+      environment: 
+        port: 6030 
+        first-ip: 127.0.1.1:6000 
+        IS_COMPOSE: "true" 
+      # mem_limit: 300m 
+      ports: 
+        - "6030:6030"

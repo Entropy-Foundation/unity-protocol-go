@@ -1,0 +1,182 @@
+syntax = "proto3";
+
+package api;
+
+service Ping {
+  rpc SayHello(PingMessage) returns (PingMessage) {}
+
+  rpc Sync(Request) returns (BootstarpSyncResponse) {}
+
+  rpc SyncAction(Request) returns (BootstarpSyncResponse) {}
+}
+
+message PingMessage {
+  string greeting = 1;
+}
+
+// message PingMessageResponse {
+//   string greeting = 1;
+// }
+
+message Empty {}
+
+//message Request {
+//  bytes Value = 1;
+//}
+
+message Response {
+  bytes Value = 1;
+}
+
+message MyData {
+ bytes Msg = 1;
+}
+
+	message Test {
+	   string label = 1;
+	   int32 type = 2;
+	}
+
+
+message Contact {
+    bytes ID = 1;
+    string Address = 2;
+    int32 QuorumID = 3;
+    bool IsOracle = 4;
+    bool IsLeader = 5;
+    bytes    Oracle = 6;
+    string PubKey = 7;
+    string Category = 8;
+    int32 SelectedNumber = 9;
+    int32 SelectedTribe = 10;
+}
+
+message NodeID {
+  bytes NodeID = 1;
+}
+
+message Contacts {
+   repeated Contact contact = 1;
+}
+
+message Request {
+    string Action  = 1;
+    bytes Data   =2;
+    bool  IsDKG =3;
+    string Param =4;
+    Contact Target  =5;
+    bytes Value = 6;
+    Contact Sender =7;
+    RPCHeader RPCHeader =8;
+    int32 NumberOfBatches =9;
+    int32 NumberOfTransactionInSingleBatch =10;
+    string TransactionType =11;
+    string TransactionToken =12;
+}
+
+
+message RPCHeader  {
+	 Contact Sender = 1;
+}
+
+message VoteResponses {
+   repeated VoteResponse voteResponse = 1;
+}
+
+message FindNodeResponse {
+	 RPCHeader RPCHeader =1;
+	 Contacts Contacts=2;
+   Contacts Value=3;
+	 string Vote=4;
+	 string Verified=5;
+   bytes Data=6;
+   VoteResponse Data2=7;
+   bool IsTransection=8;
+}
+
+message VoteResponse {
+	bytes ID = 1;
+	string TransactionID = 2;
+	string Address = 3;        
+	string Vote = 4;
+	string Reason = 5;
+	string Threshold = 6;
+	string ThresholdOfRSIP = 7;
+}
+
+
+
+message BootstarpSyncResponse {
+	Contacts Contacts = 1;
+	bytes Data = 2;    
+}
+
+message byte {
+  bytes Msg = 1;
+}
+
+message TransactionWithSignature  {
+  string 	ID  =1;
+  string 	From =2;
+  string 	 To =3;
+	int32     Amount =4;
+	string  Signature =5;            
+	string  Status   =6;          
+	repeated string Reason  =7;            
+	VoteResponses Leaders=8;
+  VoteResponses Oracles=9;
+  VoteResponses RSIP=10;
+  string Message = 11;
+  string BatchID = 12;
+}
+
+message NewTransection {
+  string 	from =1;
+  string 	to =2;
+	int32   amount =3;
+	string  signature =4;      
+}
+
+message NewTransections {
+  repeated NewTransection NewTransection =1;
+}
+message TransactionWithSignatures {
+   repeated TransactionWithSignature transactionWithSignature = 1;
+}
+
+message Client {
+  string	name =1;
+	string address =2;  
+	string publicKey =3;
+	string privateKey =4;
+	int32 amount =5;    
+}
+
+message Clients {
+  repeated Client client = 1;
+} 
+
+message BatchTransaction {
+  string ID = 1;
+  repeated TransactionWithSignature data = 2;
+  string Signature = 3;
+}
+
+message BatchTransactions {
+  repeated BatchTransaction BatchTransaction = 1;
+}
+
+message key {
+  string 	key  =1;
+}
+
+
+message RSIPDecimal  {
+  int32	Group   =1;
+	string Decimal =2;
+}
+
+message RSIPDecimals  {
+  repeated RSIPDecimal RSIPDecimal =1;
+}
+

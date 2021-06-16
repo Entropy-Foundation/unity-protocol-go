@@ -1,5 +1,6 @@
 syntax = "proto3";
 
+
 package api;
 
 service Ping {
@@ -55,6 +56,14 @@ message NodeID {
   bytes NodeID = 1;
 }
 
+message Share {
+  bytes share = 1 ;
+}
+
+message Shares {
+  repeated Share share = 1;
+}
+
 message Contacts {
    repeated Contact contact = 1;
 }
@@ -71,9 +80,25 @@ message Request {
     int32 NumberOfBatches =9;
     int32 NumberOfTransactionInSingleBatch =10;
     string TransactionType =11;
-    string TransactionToken =12;
+    int32	RSIPGroup   =12;
+	  bytes Hash =13;
+    bytes Signature =14;
+    bytes system =15;
+    int32 index =16;
+    string BatchID =17;
+    int32 LeaderGroup =18;
+    string BatchProposerLeader =19;
+    Contact DHTContact =20;
+    int64 ByteSize=21;
+    int32 TribeNumber =22;
+    Shares AggregatedSignatures =23;
+    TransactionWithSignature SingleTransaction =24;
+    string TransactionToken =25;
 }
 
+message VerifiedResponse {
+  string Message =1;
+}
 
 message RPCHeader  {
 	 Contact Sender = 1;
@@ -115,12 +140,17 @@ message byte {
   bytes Msg = 1;
 }
 
+message RSIPResponse {
+  bytes Hash =1;
+  bytes Signature =2;
+  string BatchID =3;
+}
 message TransactionWithSignature  {
   string 	ID  =1;
   string 	From =2;
   string 	 To =3;
 	int32     Amount =4;
-	string  Signature =5;            
+	bytes  Signature =5;            
 	string  Status   =6;          
 	repeated string Reason  =7;            
 	VoteResponses Leaders=8;
@@ -159,7 +189,7 @@ message Clients {
 message BatchTransaction {
   string ID = 1;
   repeated TransactionWithSignature data = 2;
-  string Signature = 3;
+  bytes Signature = 3;
 }
 
 message BatchTransactions {
@@ -173,10 +203,15 @@ message key {
 
 message RSIPDecimal  {
   int32	Group   =1;
-	string Decimal =2;
+	int32 Decimal =2;
 }
 
 message RSIPDecimals  {
   repeated RSIPDecimal RSIPDecimal =1;
 }
+
+message AlphaOracleToOtherOracles  {
+
+}
+
 

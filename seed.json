@@ -5,57 +5,70 @@
             "address": "435528d2d2f26b0d81ba13e372edaa64bb581c53",
             "publicKey": "103947a36049543624cc1b586c166277b8a2b83b9002b7a8ec30beeb44621b4b",
             "privateKey": "1 1a0b8afbd267ba11ec384f22c558c51757715adfcecaaa3074b0dbca5e0ed370 2137d06f6351c4dc5048f779f27d40627b9910cb03ca84de23a29c8c3f400acc 2298ec1d02e020a204e2761db4d662739fef1b35a9fab9c154418a53fe06ed6d 9e4f15249a4f68ab80c77a1be093bde502d69aac680101b8a1ce1c531ae2a43",
-            "amount": 10000
+            "amount": 1000000000
         },
         {
             "name": "Ryan",
             "address": "37be002d1b267023bd878d7a788bc56b0b1e37a1",
             "publicKey": "2262df9735104fde45d42adf5085bd1bedd920015facf8b839d035b0c8f31ec3",
             "privateKey": "1 d0668a0b28ec2b6a584161d08465af86a1bf23699e5d42a43732393d6975047 10ca21b5737becc82f3ba8b850ad15c6983525a127bb09bda6ab2928a921d797 208402a08262229a8dbd0eada350a0b646236458d652043f2356d19d8791829 1bd66d959ac87d54b22ff08ac63ad6c711bb8ae82415896b46de5134c6e4f48a",
-            "amount": 9000
+            "amount": 900000000
         },
         {
             "name": "joshua",
             "address": "4d751a696e60283de27363ad9b6fe676d9c6aa21",
             "publicKey": "b8ba745a3bd9082ec7754f7036bae7d918cf70b6d897a110c55f27ddf5fd3d4",
             "privateKey": "1 1e7056deb3fa0d82288259d9587ea00a67489a262bbb5fb7b41926cf215937d8 16798246b18bd7f16118d8d05bf348572bccfa76378faae87144fd5575f66ff2 c16edba79310e4d82eb33f8cc094cde35215e3cd3caddf53192d19e373bfae4 1cf86b45fbc88880347f3c7a9e9adec4ac337213768e581c67f9fc55176f04d2",
-            "amount": 10000
+            "amount": 1000000000
         },
         {
             "name": "smith",
             "address": "7eb5f4bff1e2e370bf430028f6642d5bb30afa8c",
             "publicKey": "1a943f23ee58b9f6153146a9abe96462c76eaf2d27cff086d138c49a340e126a",
             "privateKey": "1 18ea0b8dd9f29e29d5b9474292e751032a2db716554aae540a2fbde6af4875dc 208dc308b66954c1325252b31cf7a709c0c7bc817b20a50da9b3338a9e16c43f 201ecd87e9750de70946df182871fd34c35895dc14fa6b08b815bd6a5fbd9716 f9fb2190346162c69fd0d9e5f96973b4fc0f0569670e695b9e3d4b1640fa927",
-            "amount": 10000
+            "amount": 1000000000
         },
         {
             "name": "marry",
             "address": "e2c4edb0f8b7564f67e13d7d69ee52146ca7e72d",
             "publicKey": "1fb0dd2117e5372fd5f7c7be694d4376177c88f8aacc1455ab6159f71a239da8",
             "privateKey": "1 fb50201f39c02686d953658960d9ad17ac5d87ff8054ff57bbef891910c2d34 1bb2b42e6bbd35e320fbdf7b0f6f00131448512c3c8775c057a9ca1d07cbed2e 1a5ab28e43bc79a446daede8d6100c8dc4a51db2672ddf1ddc8b64936a6eec72 136c3990ccbb2fd6512074e32af9b8d5810a88c02c1b71bfab70f5f3f51a5de",
-            "amount": 10000
+            "amount": 1000000000
         },
         {
             "name": "lily",
             "address": "330fae415d7a5ce6343750610c5eab9bb2c8101c",
             "publicKey": "1ac94457308c9d58847d00e4c0f48ae661a0394ce74e04115b6cb4e03a6ac654",
             "privateKey": "1 b71cd9e470dd6624482cbf6351919a337dc273e47f2fb40b9c7dcde6a372d5b d27901c72cc1c6bbc97024ff56a8c5c73432a1ed196194d320a619d1338bbc8 150f328d64e7872fd17a6726ec9a569dbb4156c22d2d35d25eb499848fb7dc99 11a8948326a54a76a0c517273f6f1750ae664048b1f4cc20941814ee45726ee2",
-            "amount": 9000
+            "amount": 90000000
         },
         {
             "name": "Chang",
             "address": "5762f682cc9367d786d4961f255a1ececb5aa605",
             "publicKey": "25f8547b6e52ea25f99dce6ca681dcb04c23ffc984ecd40a8b57edb2e8118a8",
             "privateKey": "1 1946bb4b8b1ef75a6bb78476fbaa4c78f4226c080fd5a5a6ec2262a752149b5f 160ed38189549d88d4dcb1b31ffd6b09dd415a0c2ed274a86d9d0cb4f01287b1 f70c0e5bf75346716b822bf4c7d59ce469191806f14d0d39efb745a43baf1d5 158da81a78918e250b2b8569483fff3f1bf2d13028ac2bfb484083fc3dbe0d3f",
-            "amount": 9000
+            "amount": 90000000
         },
         {
             "name": "Tom",
             "address": "45c4c60789093301b82b52fc41c9cbd37ffe0259",
             "publicKey": "1267ba8393d48ce0eb62d583fc2db9a56d68a0fbc47141a61709a7bbe6fe5d75",
             "privateKey": "1 20b0f726ed0550797a187b001315168b223fd3b3f367b9d182dba781bd659458 45f4ac893e886c46ea81da763e3caaccfcf0c77096f78ad746f364abfc76918 24d5b31eec74ef070f35b654a87c89b507037b9e3efbd83e58d976998950c48c 1e639d7f17d32dac92639135151c5c35f986554137b5735a0fc8a68cd1f3a862",
-            "amount": 10000
+            "amount": 10000000
+        },
+        {
+            "name": "xyz",
+            "address": "456a83fbec9723b59d0be8283c81ff73dee080e1",
+            "publicKey": "759e3279e4bdddf43d7899b6f74d4b34f12ea42f6b00490f3a021638faaece8",
+            "privateKey": "1 1abe212c205500b850612d41d4715cb4acd808bbb640775e9dbf471a7a4df3f2 16182a6e9615490b7c64d0cb845d84c827498c76e15266c37bffaf67c2a194f3 1a7809f5f2c67a7f0cbaac1515b6bafd4a0d5a8fc74a70075ad567c9ac4a5b09 15240afbd9b41acc4bf1476968810c325f64bb6cad657b503ecbfcf9e7b28254",
+            "amount": 15000000
+        },
+        {
+            "name": "xyz1",
+            "address": "90ab7e282297404c680dea3f4f7c937d9a234ccc",
+            "publicKey": "1ee86613c8ccf3aaa68a4b76957cca11e3012a38c9ae21b1718b98439b424a18",
+            "privateKey": "1 c04c88f2f388fa71a528b9e3403e1758b429b6ebc128ffea7333b0063d1a63a 4d10f3146edafaeb2c61a1ed9c8c170ce10a00921e07200a4ab3563a97c5cd0 1077b8922f946f78c0833ae74fae4e4f17dcba2b19e942756393973eb090e1c2 1259d9a6571c5c842c4ff4953c056f167334e6deeef8b41716be9f298c22b3d9",
+            "amount": 150000000
         }
-        
     ]
 }

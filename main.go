@@ -7,23 +7,21 @@ import (
 	"fmt"
 	"io/ioutil"
 	"log"
+	"net/http"
 	"os"
 	"os/exec"
-
 	// "runtime"
 	"strconv"
-	// "time"
+	"strings"
+	"sync"
 
-	// "sync"
-
-	. "github.com/dfinity/go-dfinity-crypto/groupsig"
 	"github.com/golang/protobuf/proto"
-	"github.com/joho/godotenv"
+	_ "github.com/joho/godotenv/autoload"
+
 	"github.com/unity-go/api"
-	. "github.com/unity-go/dkg"
+	// . "github.com/unity-go/dkg"
 	. "github.com/unity-go/electionProcess"
 	. "github.com/unity-go/findValues"
-
 	. "github.com/unity-go/transport"
 	. "github.com/unity-go/unityCoreRPC"
 	. "github.com/unity-go/unityNode"
@@ -31,17 +29,13 @@ import (
 )
 
 func main() {
-	// runtime.GOMAXPROCS(9000)
-	err := godotenv.Load()
-	if err != nil {
-		log.Fatal("Error loading .env file")
-	}
 
 	Debug, _ = strconv.ParseBool(os.Getenv("DEBUG"))
 	ShowTime, _ = strconv.ParseBool(os.Getenv("TIME"))
 
-	// initialize dkg
-	InitBLS()
+	fmt.Println(os.Getenv("TIME"), A)
+
+	// InitBLS()
 
 	Mdb.Init()
 
@@ -54,25 +48,41 @@ func main() {
 
 func run() error {
 	// parse env variables
-	port, firstContact := parseFlags()
-	// get systems ip
-	out, _ := exec.Command("hostname", "-i").Output()
+	port, firstContact, isDHT := parseFlags()
 
+	// os.RemoveAll("./db")
+	out, _ := exec.Command("hostname", "-I").Output()
+
+	ipInString := string(out)
+	IP := strings.Split(ipInString, " ")
 	selfAddress := ""
-	selfAddress = fmt.Sprintf(Regex(string(out))+":%d", *port)
+	selfAddress = fmt.Sprintf(Regex(IP[0])+":%d", *port)
 
-	fmt.Println(selfAddress)
+	fmt.Println(selfAddress, *isDHT)
 
 	selfAddressObj := Address{}
 
+	go func() {
+
+		newPort := fmt.Sprintf("%d", *port)
+		portInNumber, _ := strconv.Atoi(newPort)
+
+		portInNumber = portInNumber + 1000
+
+		portInNumberNew := flag.Int("port1", portInNumber+1000, "a int")
+
+		log.Println(http.ListenAndServe(fmt.Sprintf(Regex(IP[0])+":%d", *portInNumberNew), nil))
+	}()
+
 	// nullContact := api.Contact{}
-	if firstContact.Address == "" {
+	if firstContact.Address == "" && *isDHT == "" {
 		selfAddressObj = Address{
 			NodeID:   NodeID{190, 130, 221, 157, 195, 212, 75, 66, 9, 219, 166, 67, 159, 38, 189, 130, 253, 179, 57, 225},
 			Address:  selfAddress,
 			QuorumID: 1,
 		}
 	} else {
+
 		selfAddressObj = Address{
 			NodeID:   NewRandomNodeID(),
 			Address:  selfAddress,
@@ -87,15 +97,15 @@ func run() error {
 	}
 
 	// create new unity node
-	newNode := NewUnityNode(&selfAddressObj)
+	newNode, nodeBlock := NewUnityNode(&selfAddressObj)
 
 	// generate public and private key for node and save in Db
-	pubKey := GenerateKeysAndStoreInDb(newNode)
+	// pubKey := GenerateKeysAndStoreInDb(newNode)
 
 	// store static clients from seed file in levelDb
 	readClientsAndStoreInDb(newNode)
 
-	selfContact.PubKey = pubKey
+	selfContact.PubKey = ""
 
 	newSelfContact := &api.Contacts{}
 	newSelfContact.Contact = append(newSelfContact.Contact, selfContact)
@@ -103,38 +113,53 @@ func run() error {
 	// store self contact in Db
 	errorFromGet := newNode.ValuesDB.Put(selfContact.ID[:], myContact, nil)
 
+	nodeBlock.AllNodesInNetwork = append(nodeBlock.AllNodesInNetwork, selfContact)
+
 	if errorFromGet != nil {
 		fmt.Println(errorFromGet)
 	}
 
-	InitializeTransport(selfContact.Address, newNode, *selfContact)
+	InitializeTransport(selfContact.Address, newNode, *selfContact, firstContact, nodeBlock)
+
 	// send self contact to target contact for bootstrapping
 	if firstContact.Address != "" {
-
-		response := BootstrapSync(*selfContact, &firstContact, api.Request{}, nil, nil)
+		response := BootstrapSync(*selfContact, &firstContact, api.Request{}, nil, nil, newNode)
 
 		contacts := response.Contacts
 
-		dataToSendInDB, _ := proto.Marshal(contacts)
+		// dataToSendInDB, _ := proto.Marshal(contacts)
 
-		errorFromGet := newNode.ValuesDB.Put(selfContact.ID[:], dataToSendInDB, nil)
-		if errorFromGet != nil {
-			fmt.Println(errorFromGet)
-		}
+		// errorFromGet := newNode.ValuesDB.Put(selfContact.ID[:], dataToSendInDB, nil)
+		// if errorFromGet != nil {
+		// 	fmt.Println(errorFromGet)
+		// }
 
+		nodeBlock.AllNodesInNetwork = contacts.Contact
+
+		var wg sync.WaitGroup
 		// iterate over the latest contacts got from boot node
 		for i := 0; i <= len(contacts.Contact)-1; i++ {
 			if contacts.Contact[i].Address != selfContact.Address && contacts.Contact[i].Address != firstContact.Address {
 
-				BootstrapSync(*selfContact, contacts.Contact[i], api.Request{}, nil, nil)
+				wg.Add(1)
+				go BootstrapSync(*selfContact, contacts.Contact[i], api.Request{}, nil, &wg, newNode)
+
+				if *isDHT != "" {
+					wg.Add(1)
+					go BootstrapSync(*selfContact, contacts.Contact[i], api.Request{
+						Action: "STORE_DHT_CONTACT",
+					}, nil, &wg, newNode)
+				}
 
 			}
 		}
+		wg.Wait()
 	}
+
 	return nil
 }
 
-func parseFlags() (port *int, firstContact api.Contact) {
+func parseFlags() (port *int, firstContact api.Contact, isDHT *string) {
 
 	firstNodeID := os.Getenv("FIRST_NODE_ID")
 	isCompose := os.Getenv("IS_COMPOSE")
@@ -142,7 +167,7 @@ func parseFlags() (port *int, firstContact api.Contact) {
 	firstIp := os.Getenv("FIRST_IP")
 
 	if os.Getenv("port") == "" {
-		port = flag.Int("port", 6000, "a int")
+		port = flag.Int("port", 6300, "a int")
 
 	} else {
 		data := os.Getenv("port")
@@ -152,6 +177,8 @@ func parseFlags() (port *int, firstContact api.Contact) {
 	}
 	firstID := flag.String("first-id", firstNodeID, "a hexideicimal node ID")
 	firstIP := flag.String("first-ip", "", "the TCP address of an existing node")
+
+	isDHT = flag.String("isDHT", "", "whether node is dht or not")
 	// quorumID = flag.Int("quorum-id", 1, "a int")
 
 	flag.Parse()

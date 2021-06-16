@@ -11,7 +11,9 @@ import (
 	"time"
 
 	// "github.com/enriquebris/goconcurrentqueue"
+	. "github.com/syndtr/goleveldb/leveldb/util"
 
+	. "github.com/unity-go/go-bls"
 	. "github.com/unity-go/mongodb"
 )
 
@@ -22,7 +24,18 @@ import (
 var (
 	outfile, _ = os.OpenFile("testnet.log", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 	Logger     = log.New(outfile, " ", log.LstdFlags)
+	A          = os.Getenv("TIME")
 )
+
+// type ClientConnection struct {
+// 	Address    string
+// 	Connection *grpc.ClientConn
+// }
+
+type ChunkWithId struct {
+	ID   int32
+	Data []byte
+}
 
 type LogResponse struct {
 	ID    string
@@ -37,7 +50,7 @@ type LogResponses struct {
 
 var Mdb = Mongo{}
 
-var MaxMsgSize = 1024 * 1024 * 1024
+var MaxMsgSize = 1024 * 1024 * 32
 
 const IDLength = 20
 
@@ -49,20 +62,42 @@ type NodeID []byte
 type TransactionChunk []byte
 type TransactionChunks []TransactionChunk
 
+// BLS
+
+var SystemData = System{}
+
 type SecretShares struct {
 	secret1 string
 	secret2 string
 }
 
-type TransactionWithSignature struct {
-	ID                     string
-	From, To, Message      string
-	Amount                 int
-	Signature              string
-	Status                 string
-	Reason                 []string
-	Leaders, Oracles, RSIP VoteResponses
+// BytesPrefix returns key range that satisfy the given prefix.
+// This only applicable for the standard 'bytes comparer'.
+func BytesPrefix(prefix []byte) *Range {
+	var limit []byte
+	for i := len(prefix) - 1; i >= 0; i-- {
+		c := prefix[i]
+		if c < 0xff {
+			limit = make([]byte, i+1)
+			copy(limit, prefix)
+			limit[i] = c + 1
+			break
+		}
+	}
+	return &Range{prefix, limit}
 }
+
+type TransactionWithSignature struct {
+	ID                         string
+	From, To, Message, BatchID string
+	Amount                     int
+	Signature                  []byte
+	Status                     string
+	Reason                     []string
+	Leaders, Oracles, RSIP     VoteResponses
+}
+
+type TransactionWithSignatures []TransactionWithSignature
 
 type TransactionWithSignature2 struct {
 	From      string `json:"from,omitempty"`
@@ -74,6 +109,12 @@ type TransactionWithSignature2 struct {
 type TransactionWithoutSignature struct {
 	From, To string `json: "from"`
 	Amount   int
+}
+
+type MessageResponse struct {
+	ID                  string
+	Time                float64
+	NumberOfTransaction int
 }
 
 type Contact struct {
@@ -110,9 +151,37 @@ type Client struct {
 	Amount     int    `json:"amount"`
 }
 
+func Contains(a []string, x string) bool {
+	for _, n := range a {
+		if strings.Contains(n, x) {
+			return true
+		}
+	}
+	return false
+}
+
+func IsChunkContains(a []ChunkWithId, x ChunkWithId) bool {
+	for _, n := range a {
+		if x.ID == n.ID {
+			return true
+		}
+	}
+	return false
+}
+
+// func IsConnectionContains(a []ClientConnection, address string) *grpc.ClientConn {
+// 	for _, n := range a {
+// 		// fmt.Println(n)
+// 		if n.Address == address {
+// 			return n.Connection
+// 		}
+// 	}
+// 	return nil
+// }
+
 type RSIPDecimal struct {
 	Group   int
-	Decimal string
+	Decimal int32
 }
 type RSIPDecimals []RSIPDecimal
 
@@ -173,6 +242,12 @@ func check(e error) {
 	}
 }
 
+func CheckErr(err error) {
+	if err != nil {
+		fmt.Println(err)
+	}
+}
+
 func Elapsed(what string) func() {
 	start := time.Now()
 	return func() {
@@ -201,13 +276,4 @@ func Log(id string, a ...interface{}) {
 	Mdb.CreateLogs(id, str)
 
 	// Logger.Println(a...)
-}
-
-func Contains(a []string, x string) bool {
-	for _, n := range a {
-		if strings.Contains(n, x) {
-			return true
-		}
-	}
-	return false
 }

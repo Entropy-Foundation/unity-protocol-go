@@ -1,0 +1,380 @@
+int int concreteTypeToName
+int8 int8 concreteTypeToName
+int16 int16 concreteTypeToName
+int32 int32 concreteTypeToName
+int64 int64 concreteTypeToName
+uint uint concreteTypeToName
+uint8 uint8 concreteTypeToName
+uint16 uint16 concreteTypeToName
+uint32 uint32 concreteTypeToName
+uint64 uint64 concreteTypeToName
+float32 float32 concreteTypeToName
+float64 float64 concreteTypeToName
+complex64 complex64 concreteTypeToName
+complex128 complex128 concreteTypeToName
+uintptr uintptr concreteTypeToName
+bool bool concreteTypeToName
+string string concreteTypeToName
+[]uint8 []uint8 concreteTypeToName
+[]int []int concreteTypeToName
+[]int8 []int8 concreteTypeToName
+[]int16 []int16 concreteTypeToName
+[]int32 []int32 concreteTypeToName
+[]int64 []int64 concreteTypeToName
+[]uint []uint concreteTypeToName
+[]uint8 []uint8 concreteTypeToName
+[]uint16 []uint16 concreteTypeToName
+[]uint32 []uint32 concreteTypeToName
+[]uint64 []uint64 concreteTypeToName
+[]float32 []float32 concreteTypeToName
+[]float64 []float64 concreteTypeToName
+[]complex64 []complex64 concreteTypeToName
+[]complex128 []complex128 concreteTypeToName
+[]uintptr []uintptr concreteTypeToName
+[]bool []bool concreteTypeToName
+[]string []string concreteTypeToName
+name klauspost/reedsolomon.Reedsolomon
+reedsolomon.Reedsolomon klauspost/reedsolomon.Reedsolomon concreteTypeToName
+true true
+127.0.1.1:6000 
+127.0.1.1:6000 address
+Size of Connection Pool:  1
+1
+Size of Connection Pool:  2
+2
+Size of Connection Pool:  3
+3
+Size of Connection Pool:  4
+4
+Size of Connection Pool:  5
+5
+Size of Connection Pool:  6
+6
+Size of Connection Pool:  7
+7
+Size of Connection Pool:  8
+8
+Size of Connection Pool:  9
+9
+Size of Connection Pool:  10
+10
+Size of Connection Pool:  11
+11
+Size of Connection Pool:  12
+12
+Size of Connection Pool:  13
+13
+Size of Connection Pool:  14
+14
+Size of Connection Pool:  15
+15
+Size of Connection Pool:  16
+16
+Size of Connection Pool:  17
+17
+Size of Connection Pool:  18
+18
+Size of Connection Pool:  19
+19
+Size of Connection Pool:  20
+20
+Size of Connection Pool:  21
+21
+Size of Connection Pool:  22
+22
+Size of Connection Pool:  23
+23
+Size of Connection Pool:  24
+24
+Size of Connection Pool:  25
+25
+Size of Connection Pool:  26
+26
+Size of Connection Pool:  27
+27
+Size of Connection Pool:  28
+28
+Size of Connection Pool:  29
+29
+Size of Connection Pool:  30
+30
+Size of Connection Pool:  31
+31
+Size of Connection Pool:  32
+32
+Size of Connection Pool:  33
+33
+Size of Connection Pool:  34
+34
+Size of Connection Pool:  35
+35
+Size of Connection Pool:  36
+36
+Size of Connection Pool:  37
+37
+Size of Connection Pool:  38
+38
+Size of Connection Pool:  39
+39
+Size of Connection Pool:  40
+40
+Size of Connection Pool:  41
+41
+Size of Connection Pool:  42
+42
+Size of Connection Pool:  43
+43
+Size of Connection Pool:  44
+44
+Size of Connection Pool:  45
+45
+Size of Connection Pool:  46
+46
+Size of Connection Pool:  47
+47
+Size of Connection Pool:  48
+48
+Size of Connection Pool:  49
+49
+Size of Connection Pool:  50
+50
+Size of Connection Pool:  51
+51
+Size of Connection Pool:  52
+52
+Size of Connection Pool:  53
+53
+Size of Connection Pool:  54
+54
+Size of Connection Pool:  55
+55
+Size of Connection Pool:  56
+56
+Size of Connection Pool:  57
+57
+Size of Connection Pool:  58
+58
+Size of Connection Pool:  59
+59
+Size of Connection Pool:  60
+60
+Size of Connection Pool:  61
+61
+Size of Connection Pool:  62
+62
+Size of Connection Pool:  63
+63
+Size of Connection Pool:  64
+64
+Size of Connection Pool:  65
+65
+Size of Connection Pool:  66
+66
+Size of Connection Pool:  67
+67
+Size of Connection Pool:  68
+68
+Size of Connection Pool:  69
+69
+Size of Connection Pool:  70
+70
+Size of Connection Pool:  71
+71
+Size of Connection Pool:  72
+72
+Size of Connection Pool:  73
+73
+Size of Connection Pool:  74
+Size of Connection Pool:  75
+74
+75
+Size of Connection Pool:  76
+76
+Size of Connection Pool:  77
+77
+Size of Connection Pool:  78
+78
+Size of Connection Pool:  79
+79
+Size of Connection Pool:  80
+80
+Size of Connection Pool:  81
+81
+Size of Connection Pool:  82
+82
+Size of Connection Pool:  83
+83
+Size of Connection Pool:  84
+84
+Size of Connection Pool:  85
+85
+Size of Connection Pool:  86
+86
+Size of Connection Pool:  87
+87
+Size of Connection Pool:  88
+88
+Size of Connection Pool:  89
+89
+Size of Connection Pool:  90
+90
+Size of Connection Pool:  91
+91
+Size of Connection Pool:  92
+92
+START-NETWORK-SETUP
+Debug-Value false
+contactsFromOwnDbNew 92
+5 7 ORACLE
+92 before 21
+thresholdOfOracles, lengthOfGroup, system 5 7 {{0x7fbbec000e60} {0x7fbbec004f90}}
+oracleGroup,Contact 7
+thresholdOfOracles, lengthOfGroup, system 5 7 {{0x7fbbec000e60} {0x7fbbec004f90}}
+oracleGroup,Contact 7
+thresholdOfOracles, lengthOfGroup, system 5 7 {{0x7fbbec000e60} {0x7fbbec004f90}}
+oracleGroup,Contact 7
+14 listOfNodesOfTribe
+Random numbers 10 2
+14 listOfNodesOfTribe
+Random numbers 7 3
+14 listOfNodesOfTribe
+Random numbers 3 7
+14 listOfNodesOfTribe
+Random numbers 9 8
+14 listOfNodesOfTribe
+Random numbers 10 1
+92 latestContacts
+5 listOfSelectedLeaders
+92 latestContacts
+5 listOfSelectedLeaders
+5 5 LEADER
+5 5 LEADER
+2 0 RSIP number of Tribes 4 number of RSIP group 4
+2 listOfRSIPNodes
+Store Private key 1.662686ms
+latestContacts.Contact 92
+Store public key 12.569173ms
+2 listOfRSIPNodes
+Store Private key 475.367µs
+latestContacts.Contact 92
+Store public key 10.175601ms
+2 listOfRSIPNodes
+Store Private key 762.504µs
+latestContacts.Contact 92
+Store public key 10.237002ms
+2 listOfRSIPNodes
+Store Private key 899.064µs
+latestContacts.Contact 92
+Store public key 10.956113ms
+2 listOfRSIPNodes
+Store Private key 381.54µs
+latestContacts.Contact 92
+Store public key 8.88161ms
+2 listOfRSIPNodes
+Store Private key 1.7062ms
+latestContacts.Contact 92
+Store public key 11.258669ms
+2 listOfRSIPNodes
+Store Private key 414.344µs
+latestContacts.Contact 92
+Store public key 11.199027ms
+2 listOfRSIPNodes
+Store Private key 964.011µs
+latestContacts.Contact 92
+Store public key 10.715846ms
+2 listOfRSIPNodes
+Store Private key 464.648µs
+latestContacts.Contact 92
+Store public key 8.619373ms
+2 listOfRSIPNodes
+Store Private key 523.471µs
+latestContacts.Contact 92
+Store public key 10.042151ms
+2 listOfRSIPNodes
+Store Private key 420.266µs
+latestContacts.Contact 92
+Store public key 10.152525ms
+2 listOfRSIPNodes
+Store Private key 406.267µs
+latestContacts.Contact 92
+Store public key 10.508877ms
+2 listOfRSIPNodes
+Store Private key 679.507µs
+latestContacts.Contact 92
+Store public key 10.709727ms
+2 listOfRSIPNodes
+Store Private key 5.203003ms
+latestContacts.Contact 92
+Store public key 9.056404ms
+2 listOfRSIPNodes
+Store Private key 617.726µs
+latestContacts.Contact 92
+Store public key 8.18982ms
+2 listOfRSIPNodes
+Store Private key 881.39µs
+latestContacts.Contact 92
+Store public key 9.671466ms
+2 listOfRSIPNodes
+Store Private key 2.313859ms
+latestContacts.Contact 92
+Store public key 15.487916ms
+2 listOfRSIPNodes
+Store Private key 957.779µs
+latestContacts.Contact 92
+Store public key 10.323645ms
+2 listOfRSIPNodes
+Store Private key 676.388µs
+latestContacts.Contact 92
+Store public key 17.212164ms
+2 listOfRSIPNodes
+Store Private key 503.06µs
+latestContacts.Contact 92
+Store public key 7.865848ms
+2 listOfRSIPNodes
+Store Private key 588.032µs
+latestContacts.Contact 92
+Store public key 9.510794ms
+2 listOfRSIPNodes
+Store Private key 589.467µs
+latestContacts.Contact 92
+Store public key 11.15974ms
+2 listOfRSIPNodes
+Store Private key 413.574µs
+latestContacts.Contact 92
+Store public key 8.265517ms
+2 listOfRSIPNodes
+Store Private key 632.949µs
+latestContacts.Contact 92
+Store public key 8.812826ms
+2 listOfRSIPNodes
+Store Private key 771.381µs
+latestContacts.Contact 92
+Store public key 12.156942ms
+RSIP COMPLETED
+LEN-OF-CONTACTS----------------- 92
+{[Group:4 Decimal:1144588559  Decimal:965745381  Group:2 Decimal:924315176  Group:3 Decimal:839894975  Group:1 Decimal:99110899 ] {} [] 0}
+LEN-OF-CONTACTS----------------- 92
+{[Group:2 Decimal:1342601208  Decimal:1156075842  Group:3 Decimal:1014120462  Group:4 Decimal:997386023  Group:1 Decimal:893574914 ] {} [] 0}
+LEN-OF-CONTACTS----------------- 92
+{[Group:3 Decimal:1169838083  Decimal:1060870545  Group:1 Decimal:1043091862  Group:2 Decimal:945372554  Group:4 Decimal:916398512 ] {} [] 0}
+LEN-OF-CONTACTS----------------- 92
+{[Decimal:1076643342  Group:4 Decimal:841662535  Group:3 Decimal:650258725  Group:1 Decimal:262820398  Group:2 Decimal:63525945 ] {} [] 0}
+LEN-OF-CONTACTS----------------- 92
+{[Group:4 Decimal:1170860012  Group:3 Decimal:1072272214  Decimal:1002841781  Group:2 Decimal:874939093  Group:1 Decimal:648936100 ] {} [] 0}
+END-NETWORK-SETUP 1.972575756s
+transections 1000
+TransactionType auto 1000
+Length of transaction request 1000 BEFORE
+TransactionChunk 1000
+0 1000 1000 1000
+Length of transaction request 1000
+response [115 116 111 114 101 100]
+EARLIER 1000
+NUMBER OF BATCHES 0 -> 0
+timeInMilisecond 0
+Time DUration 0s
+Sending message to all clients in Pool
+Message Received: {Type:1 Body:{"ID":"450acf41-4dad-439a-a112-9ea120b674c5","Time":1.007,"NumberOfTransaction":308898}}
+SINGLE JOB RESPONSE
+Finish Whole Scheduler transaction---------------------------------------------------- took 1.012805848s
+signal: interrupt

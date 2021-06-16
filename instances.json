@@ -1,0 +1,68 @@
+[
+    {
+        "InstanceId": "i-003df0bca2311d8fe",
+        "region": "ap-south-1",
+        "InstanceType": "c5.9xlarge",
+        "PublicIpAddress": "13.232.209.149"
+    },
+    {
+        "InstanceId": "i-0f6a8474c8c3e8248",
+        "region": "eu-west-2",
+        "InstanceType": "c5.9xlarge",
+        "PublicIpAddress": "18.130.124.184"
+    },
+    {
+        "InstanceId": "i-0a2da2f9a86e6b8b3",
+        "region": "eu-west-1",
+        "InstanceType": "c5.9xlarge",
+        "PublicIpAddress": "34.243.113.245"
+    },
+    {
+        "InstanceId": "i-01a7a196b0fabf32c",
+        "region": "ap-northeast-1",
+        "InstanceType": "c5.9xlarge",
+        "PublicIpAddress": "13.231.137.7"
+    },
+    {
+        "InstanceId": "i-0c3e45550fdd9e8d4",
+        "region": "ca-central-1",
+        "InstanceType": "c5.9xlarge",
+        "PublicIpAddress": "35.183.207.61"
+    },
+    {
+        "InstanceId": "i-0ddd02e5dedf4f9e3",
+        "region": "ap-southeast-2",
+        "InstanceType": "c5.9xlarge",
+        "PublicIpAddress": "54.206.83.119"
+    },
+    {
+        "InstanceId": "i-0dd8fd288b8e2ab78",
+        "region": "eu-central-1",
+        "InstanceType": "c5.9xlarge",
+        "PublicIpAddress": "18.184.246.183"
+    },
+    {
+        "InstanceId": "i-05f76378a1448ab48",
+        "region": "us-east-1",
+        "InstanceType": "c5.9xlarge",
+        "PublicIpAddress": "54.196.100.48"
+    },
+    {
+        "InstanceId": "i-021fb9816699cf018",
+        "region": "us-east-2",
+        "InstanceType": "c5.9xlarge",
+        "PublicIpAddress": "3.16.82.136"
+    },
+    {
+        "InstanceId": "i-0523cc55addd92969",
+        "region": "us-east-2",
+        "InstanceType": "c5.9xlarge",
+        "PublicIpAddress": "18.221.23.74"
+    },
+    {
+        "InstanceId": "i-0de119756b3d93d0a",
+        "region": "us-west-2",
+        "InstanceType": "c5.9xlarge",
+        "PublicIpAddress": "54.188.157.118"
+    }
+]

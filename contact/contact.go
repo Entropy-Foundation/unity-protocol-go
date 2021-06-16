@@ -1,7 +1,6 @@
 package contact
 
 import (
-	. "github.com/dfinity/go-dfinity-crypto/groupsig"
 	. "github.com/unity-go/util"
 )
 

@@ -9,6 +9,7 @@ import (
 	. "github.com/unity-go/util"
 )
 
+// find value by id
 func GetValuesById(node *UnityNode, id []byte) api.Contacts {
 	data := api.Contacts{}
 
@@ -20,9 +21,13 @@ func GetValuesById(node *UnityNode, id []byte) api.Contacts {
 	}
 	proto.Unmarshal(value, &data)
 
+	value = nil
+
+	// log.Println(value, data)
 	return data
 }
 
+// put value by id
 func PutValuesById(node *UnityNode, id []byte, data []byte) error {
 	err := node.ValuesDB.Put(id[:], data, nil)
 	if err != nil {
@@ -31,6 +36,7 @@ func PutValuesById(node *UnityNode, id []byte, data []byte) error {
 	return nil
 }
 
+// find value
 func GetValue(node *UnityNode, id []byte) []byte {
 
 	value, err := node.ValuesDB.Get(id[:], nil)
